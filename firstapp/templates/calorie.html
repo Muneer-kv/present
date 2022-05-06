@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie</title>
+    <link rel="stylesheet" href="../static/css/abc.css">
+</head>
+<body class="main">
+    <script>
+        // var option=""
+        function myfunc(){
+            var select=document.getElementById("select1");
+            var  option=select.options[select.selectedIndex];
+    
+            document.getElementById('text').value = option.text;
+    
+        }
+
+        function calc(){
+            // var select=document.getElementById("select1");
+            // var option=select.options[select.selectedIndex];
+            var num=document.getElementById('t1').value;
+            var opt=document.getElementById('text').value;
+            console.log(num)
+            console.log(opt)
+            if (document.getElementById('text').value=='burgers') {
+
+                document.getElementById('text2').innerHTML = num*360;
+            }
+            else if (document.getElementById('text').value=='cookies') {
+                document.getElementById('text2').innerHTML = ((num/30)*148);
+                
+            }
+            else if (document.getElementById('text').value=='donuts') {
+                document.getElementById('text2').innerHTML = ((num/100)*452);
+                
+            }
+            else if (document.getElementById('text').value=='french_fries') {
+                document.getElementById('text2').innerHTML = ((num/100)*312);
+                
+            }
+            else if (document.getElementById('text').value=='fried_chicken') {
+                document.getElementById('text2').innerHTML = ((num/100)*246);
+                
+            }
+            else if (document.getElementById('text').value=='fried_egg') {
+                document.getElementById('text2').innerHTML = num*180;
+                
+            }
+            else if (document.getElementById('text').value=='hotdogs') {
+                document.getElementById('text2').innerHTML = ((num/100)*290);
+                
+            }
+            else if (document.getElementById('text').value=='pizza') {
+                document.getElementById('text2').innerHTML = ((num/100)*266);
+                
+            }
+            else if (document.getElementById('text').value=='apple') {
+                document.getElementById('text2').innerHTML = ((num/100)*52);
+                
+            }
+            else if (document.getElementById('text').value=='banana') {
+                document.getElementById('text2').innerHTML = ((num/100)*89);
+                
+            }
+            else if (document.getElementById('text').value=='orange') {
+                document.getElementById('text2').innerHTML = ((num/100)*47);
+                
+            }
+        }
+        myfunc();
+        calc();
+    
+    </script>
+    
+    
+<div class="div1"> 
+    <div class="div2">
+    <table align="center">
+        <tr>
+            <td>
+                <label for="" class="a" >Select item:</label>
+    
+            </td>
+            <td>
+                <select id="select1" onchange="myfunc()">
+                    <option value="-----"></option>
+                    <option id="op" value="1">burgers</option>
+                    <option id="op" value="cookies">cookies</option>
+                    <option id="op" value="donuts">donuts</option>
+                    <option id="op" value="french_fries">french_fries</option>
+                    <option id="op" value="fried_chicken">fried_chicken</option>
+                    <option id="op" value="fried_egg">fried_egg</option>
+                    <option id="op" value="hotdogs">hotdogs</option>
+                    <option id="op" value="pizza">pizza</option>
+                    <option id="op" value="apple">apple</option>
+                    <option id="op" value="banana">banana</option>
+                    <option id="op" value="orange">orange</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" class="a">Selected Item:</label>
+            </td>
+            <td>
+                <input type="text" id="text">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" class="a">Item Quantity:</label>
+            </td>
+            <td>
+                <input type="text" id="t1" placeholder="gms/count">
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+    
+    
+    </div>
+<div class="result"> 
+    
+    
+    
+<p id="text2"></p>
+</div>
+<div class="btn">
+<input type="button" id="b1" value="submit" onclick="calc()">
+<br>
+<a href="{% url 'index' %}" class="nav-item nav-link active" style="color: rgb(236, 0, 0);">Home</a>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
